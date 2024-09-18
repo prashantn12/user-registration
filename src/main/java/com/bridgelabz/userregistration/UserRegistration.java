@@ -61,7 +61,12 @@ public class UserRegistration {
         String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])(?=.{8,})[^a-zA-Z0-9]*[^a-zA-Z0-9]$";
         return Pattern.matches(passwordPattern, password);
     }
-
+    // UC9: Validate Email - with optional subdomain and country code
+    public boolean validateAllEmailSamples(String email) {
+        // Regex pattern for email validation
+        String emailPattern = "^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z]{2,})+$";
+        return Pattern.matches(emailPattern, email);
+    }
 
     public static void main(String[] args) {
         UserRegistration userRegistration=new UserRegistration();
@@ -73,5 +78,6 @@ public class UserRegistration {
         System.out.println(userRegistration.validatePasswordRuleTwo("prashant"));
         System.out.println(userRegistration.validatePasswordRuleThree("Prashant0872"));
         System.out.println(userRegistration.validatePasswordRuleFour("Prashant09@"));
+        System.out.println(userRegistration.validateAllEmailSamples("abc@bl.co"));
     }
 }

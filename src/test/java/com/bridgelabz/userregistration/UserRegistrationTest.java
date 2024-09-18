@@ -103,19 +103,41 @@ public class UserRegistrationTest {
         // Assert
         Assert.assertTrue(result);
     }
+
+
+
     // UC5-UC8: Test Password Validation
-
     @Test
-    public void givenPassword_WhenAllRulesPassed_ShouldReturnTrue() {
-        // Arrange
-        String password = "Password1@";
+    public void givenPassword_WhenValid_ShouldReturn_False() {
+        //Arrange
+        UserRegistration user=new UserRegistration();
 
-        // Act
-        boolean result = userRegistration.validatePassword(password);
+        //Act
+        boolean result=user.validatePassword("Prashant12");
 
-        // Assert
-        Assert.assertTrue(result);
+
+        //Assert
+        Assert.assertFalse(result);
     }
+
+
+    
+    // UC9: Test Email Validation
+    @Test
+    public void gievnEmailsamples_WhenValid_Return_True() {
+        //Arrange
+        UserRegistration user=new UserRegistration();
+
+
+        //Act
+        Assert.assertTrue(user.validateAllEmailSamples("abc-100@abc.net"));
+
+
+        //Assert
+        Assert.assertTrue(user.validateAllEmailSamples("abc.100@abc.com.au"));
+
+    }
+
 
     
 }

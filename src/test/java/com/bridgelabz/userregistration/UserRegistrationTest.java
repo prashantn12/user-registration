@@ -59,4 +59,17 @@ public class UserRegistrationTest {
         // Assert
         Assert.assertTrue(result);
     }
+    // UC5: Test password with minimum 8 characters
+    @Test
+    public void givenPassword_WhenLessThan8Characters_ShouldReturnFalse() {
+        // Arrange
+        UserRegistration userRegistration = new UserRegistration();
+        String invalidPassword = "pass12";
+
+        // Act
+        boolean result = userRegistration.validatePassword(invalidPassword);
+
+        // Assert
+        Assert.assertFalse(result);
+    }
 }

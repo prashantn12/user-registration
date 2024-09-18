@@ -26,11 +26,19 @@ public class UserRegistration {
         return mobileNumber.matches(mobilePattern);
     }
 
+    // UC5: Validate Password (minimum 8 characters)
+    public boolean validatePassword(String password) {
+        // Regex to check if the password is at least 8 characters long
+        String passwordPattern = "^.{8,}$";
+        return password.matches(passwordPattern);
+    }
+
     public static void main(String[] args) {
         UserRegistration userRegistration=new UserRegistration();
         System.out.println(userRegistration.validateFirstName("Prashant"));
         System.out.println(userRegistration.validateLastName("Nangare"));
         System.out.println(userRegistration.validateEmail("abc.xyz@bl.co.in"));
         System.out.println(userRegistration.validateMobileNumber("91 8626047656"));
+        System.out.println(userRegistration.validatePassword("Prashant"));
     }
 }

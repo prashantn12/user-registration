@@ -1,4 +1,6 @@
 package com.bridgelabz.userregistration;
+import java.util.*;
+import java.util.regex.Pattern;
 
 public class UserRegistration {
     public boolean validateFirstName(String firstName) {
@@ -53,6 +55,14 @@ public class UserRegistration {
     }
 
 
+    // UC5-UC8: Validate Password (combined regex for all rules)
+    public boolean validatePasswordRuleFour(String password) {
+        // Combined regex for all rules
+        String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])(?=.{8,})[^a-zA-Z0-9]*[^a-zA-Z0-9]$";
+        return Pattern.matches(passwordPattern, password);
+    }
+
+
     public static void main(String[] args) {
         UserRegistration userRegistration=new UserRegistration();
         System.out.println(userRegistration.validateFirstName("Prashant"));
@@ -61,6 +71,7 @@ public class UserRegistration {
         System.out.println(userRegistration.validateMobileNumber("91 8626047656"));
         System.out.println(userRegistration.validatePassword("Prashant"));
         System.out.println(userRegistration.validatePasswordRuleTwo("prashant"));
-        System.out.println(userRegistration.validatePasswordRuleTwo("Prashant0872"));
+        System.out.println(userRegistration.validatePasswordRuleThree("Prashant0872"));
+        System.out.println(userRegistration.validatePasswordRuleFour("Prashant09@"));
     }
 }

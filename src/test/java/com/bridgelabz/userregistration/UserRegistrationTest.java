@@ -18,6 +18,7 @@ public class UserRegistrationTest {
         Assert.assertTrue(result);
     }
 
+
     // UC2: Last Name Validation
     @Test
     public void givenLastName_WhenProper_ShouldReturnTrue() {
@@ -91,7 +92,7 @@ public class UserRegistrationTest {
 
     // UC5, UC6, UC7: Test Password Validation
     @Test
-    public void givenPassword_WhenValid_ShouldReturnTrue() {
+    public void givenPassword_WhenValid_ShouldReturnTrueTwo() {
         // Arrange
         UserRegistration userRegistration = new UserRegistration();
         String password = "Password1";
@@ -100,6 +101,21 @@ public class UserRegistrationTest {
         boolean result = userRegistration.validatePassword(password);
 
         // Assert
-        Assertions.assertTrue(result);
+        Assert.assertTrue(result);
     }
+    // UC5-UC8: Test Password Validation
+
+    @Test
+    public void givenPassword_WhenAllRulesPassed_ShouldReturnTrue() {
+        // Arrange
+        String password = "Password1@";
+
+        // Act
+        boolean result = userRegistration.validatePassword(password);
+
+        // Assert
+        Assert.assertTrue(result);
+    }
+
+    
 }

@@ -45,4 +45,18 @@ public class UserRegistrationTest {
         // Assert
         Assert.assertTrue(result);
     }
+
+    // UC4: Mobile Number Validation
+    @Test
+    public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+        // Arrange
+        UserRegistration userRegistration = new UserRegistration();
+        String mobileNumber = "91 9919819801";
+
+        // Act
+        boolean result = userRegistration.validateMobileNumber(mobileNumber);
+
+        // Assert
+        Assert.assertTrue(result);
+    }
 }

@@ -20,10 +20,17 @@ public class UserRegistration {
         return email.matches(emailPattern);
     }
 
+    // UC4: Validate mobile number (Country code followed by space and 10-digit number)
+    public boolean validateMobileNumber(String mobileNumber) {
+        String mobilePattern = "^[0-9]{2}\\s[0-9]{10}$";
+        return mobileNumber.matches(mobilePattern);
+    }
+
     public static void main(String[] args) {
         UserRegistration userRegistration=new UserRegistration();
         System.out.println(userRegistration.validateFirstName("Prashant"));
         System.out.println(userRegistration.validateLastName("Nangare"));
         System.out.println(userRegistration.validateEmail("abc.xyz@bl.co.in"));
+        System.out.println(userRegistration.validateMobileNumber("91 8626047656"));
     }
 }

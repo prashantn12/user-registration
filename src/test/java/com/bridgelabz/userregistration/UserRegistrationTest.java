@@ -72,4 +72,20 @@ public class UserRegistrationTest {
         // Assert
         Assert.assertFalse(result);
     }
+
+
+    // UC5 and UC6: Test password with minimum 8 characters and at least 1 uppercase letter
+
+    @Test
+    public void givenPassword_WhenValid_ShouldReturnTrue() {
+        // Arrange
+        UserRegistration userRegistration = new UserRegistration();
+        String password = "Password1";  // Valid password: at least 8 characters and 1 uppercase letter
+
+        // Act
+        boolean result = userRegistration.validatePassword(password);
+
+        // Assert
+        Assert.assertTrue(result);
+    }
 }

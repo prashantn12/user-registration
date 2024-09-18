@@ -31,7 +31,18 @@ public class UserRegistration {
         // Regex to check if the password is at least 8 characters long
         String passwordPattern = "^.{8,}$";
         return password.matches(passwordPattern);
+
+
     }
+
+    // UC5 and UC6: Validate Password with minimum 8 characters and at least 1 uppercase character
+    public boolean validatePasswordRuleTwo(String password) {
+        // Combine both rules into a simple regex pattern
+        String passwordPattern = "^(?=.*[A-Z]).{8,}$";  // UC5: minimum 8 characters, UC6: at least 1 uppercase
+        return password.matches(passwordPattern);
+    }
+
+
 
     public static void main(String[] args) {
         UserRegistration userRegistration=new UserRegistration();
@@ -40,5 +51,6 @@ public class UserRegistration {
         System.out.println(userRegistration.validateEmail("abc.xyz@bl.co.in"));
         System.out.println(userRegistration.validateMobileNumber("91 8626047656"));
         System.out.println(userRegistration.validatePassword("Prashant"));
+        System.out.println(userRegistration.validatePasswordRuleTwo("prashant"));
     }
 }

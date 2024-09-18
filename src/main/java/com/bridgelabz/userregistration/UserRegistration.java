@@ -14,10 +14,16 @@ public class UserRegistration {
         return lastName.matches(lastNamePattern);
     }
 
+    // UC3: Validate email
+    public boolean validateEmail(String email) {
+        String emailPattern = "^[a-zA-Z0-9]+([.][a-zA-Z0-9]+)?@[a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2})?$";
+        return email.matches(emailPattern);
+    }
+
     public static void main(String[] args) {
         UserRegistration userRegistration=new UserRegistration();
         System.out.println(userRegistration.validateFirstName("Prashant"));
         System.out.println(userRegistration.validateLastName("Nangare"));
-
+        System.out.println(userRegistration.validateEmail("abc.xyz@bl.co.in"));
     }
 }

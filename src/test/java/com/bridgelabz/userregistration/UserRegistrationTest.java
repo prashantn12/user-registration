@@ -32,5 +32,17 @@ public class UserRegistrationTest {
         Assert.assertTrue(result);
     }
 
-    
+    // UC3: Email Validation
+    @Test
+    public void givenEmail_WhenProper_ShouldReturnTrue() {
+        // Arrange
+        UserRegistration userRegistration = new UserRegistration();
+        String email = "abc.xyz@bl.co.in";
+
+        // Act
+        boolean result = userRegistration.validateEmail(email);
+
+        // Assert
+        Assert.assertTrue(result);
+    }
 }

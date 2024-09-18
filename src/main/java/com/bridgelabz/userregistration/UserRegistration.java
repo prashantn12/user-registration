@@ -42,6 +42,15 @@ public class UserRegistration {
         return password.matches(passwordPattern);
     }
 
+    // UC5, UC6, UC7: Validate Password with combined regex pattern
+    public boolean validatePasswordRuleThree(String password) {
+        // Regex pattern to check:
+        // 1. Minimum 8 characters
+        // 2. At least 1 uppercase letter
+        // 3. At least 1 numeric digit
+        String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+        return password.matches(passwordPattern);
+    }
 
 
     public static void main(String[] args) {
@@ -52,5 +61,6 @@ public class UserRegistration {
         System.out.println(userRegistration.validateMobileNumber("91 8626047656"));
         System.out.println(userRegistration.validatePassword("Prashant"));
         System.out.println(userRegistration.validatePasswordRuleTwo("prashant"));
+        System.out.println(userRegistration.validatePasswordRuleTwo("Prashant0872"));
     }
 }

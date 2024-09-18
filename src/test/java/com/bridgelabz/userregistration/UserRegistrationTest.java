@@ -88,4 +88,18 @@ public class UserRegistrationTest {
         // Assert
         Assert.assertTrue(result);
     }
+
+    // UC5, UC6, UC7: Test Password Validation
+    @Test
+    public void givenPassword_WhenValid_ShouldReturnTrue() {
+        // Arrange
+        UserRegistration userRegistration = new UserRegistration();
+        String password = "Password1";
+
+        // Act
+        boolean result = userRegistration.validatePassword(password);
+
+        // Assert
+        Assertions.assertTrue(result);
+    }
 }
